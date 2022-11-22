@@ -18,20 +18,7 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.section-active {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
-
-  background-image: url('/mountain-bg.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
+  flex-direction: column;
 }
 
 .main-open-h2 {
