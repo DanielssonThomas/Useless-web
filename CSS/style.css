@@ -1,0 +1,40 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+h2,
+section {
+  display: none;
+}
+
+.main-open {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(19, 19, 19);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+
+  background-image: url('/mountain-bg.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.main-open-h2 {
+  display: contents;
+  margin: 0;
+}

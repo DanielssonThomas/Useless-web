@@ -29,3 +29,8 @@
 body {
   font-family: 'Montserrat-m';
 }
+
+h2 {
+  color: white;
+  font-family: 'montserrat-b';
+}
