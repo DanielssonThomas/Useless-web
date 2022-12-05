@@ -5,3 +5,29 @@
 body {
   margin: 0;
 }
+
+.user-interact-btn {
+  position: relative;
+  background-color: transparent;
+  color: red;
+  border: none;
+  width: 10rem;
+  height: 2rem;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.user-interact-btn::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -10rem;
+  width: 10rem;
+  height: 1px;
+  background-color: white;
+  transition: 0.5s left ease;
+}
+
+.user-interact-btn:hover::after {
+  left: 0;
+}

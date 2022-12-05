@@ -1,6 +1,31 @@
+.first-page-active {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.first-page-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+}
+
 .bg-picture img {
   object-position: center;
   object-fit: cover;
   width: 100vw;
   height: 100vh;
+  z-index: -1;
+}
+
+.shadowing {
+  position: absolute;
+  background-color: black;
+  height: 100vh;
+  width: 100vw;
+  opacity: 0.4;
 }

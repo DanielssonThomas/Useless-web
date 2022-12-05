@@ -1,0 +1,25 @@
+.second-page {
+  display: none;
+}
+
+.second-page-active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(43, 43, 43);
+  margin-top: -4px;
+  height: 100vh;
+  width: 100vw;
+}
+
+.second-page-active h2 {
+  margin: 0;
+}
+
+.second-page-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 6rem;
+}
