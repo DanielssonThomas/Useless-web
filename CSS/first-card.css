@@ -1,0 +1,58 @@
+.starting-page-active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+
+  background-image: url('/mountain-bg.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.starting-page-active h2,
+.starting-page-active button {
+  z-index: 1;
+}
+
+.dont-btn {
+  position: relative;
+  display: block;
+  width: 10rem;
+  padding: 0.5rem;
+  top: 2rem;
+  background-color: transparent;
+  color: red;
+  border: none;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.dont-btn::after {
+  position: absolute;
+  content: '';
+  width: 10rem;
+  height: 1px;
+  background-color: white;
+  bottom: 0;
+  left: -10rem;
+}
+
+.dont-btn:hover::after {
+  animation: underlineAnim 0.5s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.shadowing {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  align-self: center;
+  justify-self: center;
+  background-color: black;
+  opacity: 0.4;
+}
