@@ -1,11 +1,31 @@
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(50vh);
+  }
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(10vw);
+  }
+  to {
+    transform: translateX(90vw);
+  }
+}
+
 .third-page-active {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  position: relative;
   background-color: rgb(43, 43, 43);
   height: 100vh;
   width: 100vw;
+  overflow: hidden;
 }
 
 .third-page-disabled {
@@ -21,6 +41,24 @@
 
   width: 20rem;
   text-align: center;
+}
+
+.summon-container {
+  display: flex;
+  position: absolute;
+  width: 100vw;
+  animation: bounce 1s alternate infinite;
+}
+
+.summon-box {
+  height: 5rem;
+  width: 2rem;
+  animation: slide 10s alternate infinite;
+}
+
+.summon {
+  position: absolute;
+  color: red;
 }
 
 @media screen and (min-width: 700px) {
