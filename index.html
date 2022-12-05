@@ -12,14 +12,28 @@
   <body>
     <section class="first-page-active">
       <div class="shadowing"></div>
+      <picture class="bg-picture">
+        <source
+          srcset="images/mountain-bg-large.jpg"
+          media="(min-width: 1000px)"
+        />
+        <source
+          srcset="images/mountain-bg-medium.jpg"
+          media="(min-width: 700px)"
+        />
+        <img
+          src="images/mountain-bg-small.jpg"
+          alt="large mountains with star filled skies"
+        />
+      </picture>
       <h2>What a VIEW</h2>
       <button class="dont-btn">Dont click me</button>
     </section>
 
-    <main>
+    <section>
       <h2>Why did you do that?</h2>
       <button class="main-btn">Why not?</button>
-    </main>
+    </section>
     <script src="script.js"></script>
   </body>
 </html>
