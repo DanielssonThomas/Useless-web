@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="CSS/typography.css" />
     <link rel="stylesheet" href="CSS/first-card.css" />
     <link rel="stylesheet" href="CSS/second-card.css" />
+    <link rel="stylesheet" href="CSS/third-card.css" />
     <title></title>
   </head>
   <body>
@@ -36,10 +37,38 @@
       </article>
     </section>
 
-    <section id="page-2" class="second-page-disabled">
+    <section class="second-page-disabled">
       <article class="second-page-content">
         <h2>Why would you do that?</h2>
         <button class="user-interact-btn">Why not?</button>
+      </article>
+    </section>
+
+    <section class="third-page-disabled">
+      <div class="shadowing"></div>
+      <picture class="bg-picture">
+        <source
+          srcset="images/nightSky-FullRes.jpg"
+          media="(min-width: 1900px)"
+        />
+        <source srcset="images/nightSky-large.jpg" media="(min-width:1000px)" />
+        <source
+          srcset="images/nightSky-medium.jpg"
+          media="(min-width: 700px)"
+        />
+        <img
+          src="images/nightSky-small.jpg"
+          alt="Forest with star filled skies"
+        />
+      </picture>
+      <article class="third-page-content">
+        <h2>Now what? the image is great, keep looking at it!</h2>
+        <input
+          type="text"
+          class="user-interact-input"
+          name="user-input"
+          placeholder="name...here"
+        />
       </article>
     </section>
 

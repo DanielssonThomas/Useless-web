@@ -1,0 +1,30 @@
+.third-page-active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(43, 43, 43);
+  height: 100vh;
+  width: 100vw;
+}
+
+.third-page-disabled {
+  display: none;
+}
+
+.third-page-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+
+  width: 20rem;
+  text-align: center;
+}
+
+@media screen and (min-width: 700px) {
+  .third-page-content {
+    width: 100%;
+  }
+}
