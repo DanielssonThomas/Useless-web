@@ -40,7 +40,7 @@ const secondPageEvents = () => {
     setTimeout(() => {
       toggleSecondPage();
     }, 1000);
-  }, 6000);
+  }, 4500);
 };
 
 firstPageBtn.addEventListener('click', () => {

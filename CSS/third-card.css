@@ -9,10 +9,10 @@
 
 @keyframes slide {
   from {
-    transform: translateX(10vw);
+    transform: translateX(0vw);
   }
   to {
-    transform: translateX(90vw);
+    transform: translateX(100vw);
   }
 }
 
@@ -43,11 +43,24 @@
   text-align: center;
 }
 
-.summon-container {
+.summon-container-one,
+.summon-container-two,
+.summon-container-three {
   display: flex;
   position: absolute;
   width: 100vw;
+}
+
+.summon-container-one {
   animation: bounce 1s alternate infinite;
+}
+
+.summon-container-two {
+  animation: bounce 0.5s alternate infinite;
+}
+
+.summon-container-three {
+  animation: bounce 1.5s alternate infinite;
 }
 
 .summon-box {

@@ -1,17 +1,11 @@
-const niceComments = [
-  "Great! doesn't it look fun? matched the view nicely",
+const comments = [
+  "Great! doesn't it look funny?",
   "I couldn't have done it better my self!",
-  'Now, lets enjoy the view. And relax',
-];
-
-const questionableComments = [
-  'WOAH THERE, calm down! No need for more. Fine. We can have that one two',
+  'Okay thats enough, lets enjoy the view',
+  'WOAH THERE, calm down! No need for more.',
   'No- NO...Fine, you can have THREE no more',
   '...',
   'Oh no',
-];
-
-const crashingcomments = [
   'STOP',
   'STOOOP',
   'ITS ALL GOING DOWN',
@@ -20,8 +14,13 @@ const crashingcomments = [
   'What is this abomination...',
 ];
 
-const summonBox = document.querySelector('.summon-container');
+const summonBoxOne = document.querySelector('.summon-container-one');
+const summonBoxTwo = document.querySelector('.summon-container-two');
+const summonBoxThree = document.querySelector('.summon-container-three');
+
 const userInput = document.querySelector('.user-interact-input');
+let commentIndex = 0;
+let boxIndex = 0;
 
 const summon = (value) => {
   const div = document.createElement('div');
@@ -30,11 +29,27 @@ const summon = (value) => {
   p.classList.add('summon');
   p.textContent = value;
   div.append(p);
-  summonBox.append(div);
+  if (boxIndex === 0) {
+    summonBoxOne.append(div);
+  }
+
+  if (boxIndex === 1) {
+    summonBoxTwo.append(div);
+  }
+
+  if (boxIndex === 2) {
+    summonBoxThree.append(div);
+  }
+  boxIndex++;
+  if (boxIndex === 3) {
+    boxIndex === 0;
+  }
 };
 
 userInput.addEventListener('keydown', (button) => {
   if (button.key == 'Enter') {
     summon(userInput.value);
+    commentIndex++;
+    thirdPageH2.textContent = comments[commentIndex];
   }
 });
