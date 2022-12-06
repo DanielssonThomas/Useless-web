@@ -14,11 +14,14 @@ const comments = [
   'What is this abomination...',
 ];
 
+const emojis = ['👻', '🙌', '🖖', '😎', '🫠', '🐱'];
+
 const summonBoxOne = document.querySelector('.summon-container-one');
 const summonBoxTwo = document.querySelector('.summon-container-two');
 const summonBoxThree = document.querySelector('.summon-container-three');
 
 const userInput = document.querySelector('.user-interact-input');
+const thirdPageBtn = thirdPage.querySelector('.user-interact-btn');
 let commentIndex = 0;
 let boxIndex = 0;
 
@@ -51,5 +54,17 @@ userInput.addEventListener('keydown', (button) => {
     summon(userInput.value);
     commentIndex++;
     thirdPageH2.textContent = comments[commentIndex];
+  }
+});
+
+thirdPageBtn.addEventListener('click', () => {
+  for (let i = 0; i < 13; i++) {
+    setTimeout(() => {
+      summon(emojis[Math.floor(Math.random() * emojis.length)]);
+      boxIndex++;
+      if (boxIndex === 3) {
+        boxIndex === 0;
+      }
+    }, 500);
   }
 });
