@@ -63,6 +63,10 @@
   animation: bounce 1.5s alternate infinite;
 }
 
+.third-page-btn {
+  z-index: 2;
+}
+
 .summon-box {
   height: 5rem;
   width: 2rem;

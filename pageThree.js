@@ -22,6 +22,7 @@ const summonBoxThree = document.querySelector('.summon-container-three');
 
 const userInput = document.querySelector('.user-interact-input');
 const thirdPageBtn = thirdPage.querySelector('.user-interact-btn');
+
 let commentIndex = 0;
 let boxIndex = 0;
 
@@ -33,38 +34,46 @@ const summon = (value) => {
   p.textContent = value;
   div.append(p);
   if (boxIndex === 0) {
-    summonBoxOne.append(div);
+    summonBoxOne.appendChild(div);
   }
 
   if (boxIndex === 1) {
-    summonBoxTwo.append(div);
+    summonBoxTwo.appendChild(div);
   }
 
   if (boxIndex === 2) {
-    summonBoxThree.append(div);
+    summonBoxThree.appendChild(div);
   }
+
   boxIndex++;
   if (boxIndex === 3) {
-    boxIndex === 0;
+    boxIndex = 0;
   }
+};
+
+const continueAutoSummon = () => {
+  setInterval(() => {
+    const emoji = emojis[Math.floor(Math.random() * emojis.length)];
+    summon(emoji);
+    if (commentIndex !== 13) {
+      commentIndex++;
+      thirdPageH2.textContent = comments[commentIndex];
+    }
+  }, 200);
 };
 
 userInput.addEventListener('keydown', (button) => {
   if (button.key == 'Enter') {
     summon(userInput.value);
-    commentIndex++;
-    thirdPageH2.textContent = comments[commentIndex];
+
+    if (commentIndex !== 13) {
+      commentIndex++;
+      thirdPageH2.textContent = comments[commentIndex];
+    }
   }
 });
 
 thirdPageBtn.addEventListener('click', () => {
-  for (let i = 0; i < 13; i++) {
-    setTimeout(() => {
-      summon(emojis[Math.floor(Math.random() * emojis.length)]);
-      boxIndex++;
-      if (boxIndex === 3) {
-        boxIndex === 0;
-      }
-    }, 500);
-  }
+  continueAutoSummon();
+  thirdPageBtn.remove();
 });
