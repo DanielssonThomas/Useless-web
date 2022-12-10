@@ -21,56 +21,72 @@ const summonBoxTwo = document.querySelector('.summon-container-two');
 const summonBoxThree = document.querySelector('.summon-container-three');
 
 const userInput = document.querySelector('.user-interact-input');
+
 const thirdPageBtn = thirdPage.querySelector('.user-interact-btn');
 
 let commentIndex = 0;
+let commentDelay = 0;
 let boxIndex = 0;
+let summonLimit = 15;
+let currentSummonAmount = 0;
+
+const stageTwo = () => {
+  clearInterval();
+};
+
+const stageTwoIncrement = () => {
+  currentSummonAmount++;
+  if (currentSummonAmount === summonLimit) {
+  }
+};
 
 const summon = (value) => {
-  const div = document.createElement('div');
   const p = document.createElement('p');
-  div.classList.add('summon-box');
   p.classList.add('summon');
   p.textContent = value;
-  div.append(p);
+
   if (boxIndex === 0) {
-    summonBoxOne.appendChild(div);
+    summonBoxOne.appendChild(p);
   }
 
   if (boxIndex === 1) {
-    summonBoxTwo.appendChild(div);
+    summonBoxTwo.appendChild(p);
   }
 
   if (boxIndex === 2) {
-    summonBoxThree.appendChild(div);
+    summonBoxThree.appendChild(p);
   }
 
   boxIndex++;
   if (boxIndex === 3) {
     boxIndex = 0;
   }
+  stageTwoIncrement();
 };
 
 const continueAutoSummon = () => {
   setInterval(() => {
     const emoji = emojis[Math.floor(Math.random() * emojis.length)];
     summon(emoji);
-    if (commentIndex !== 13) {
+    commentDelay++;
+    if (commentIndex !== 12 && commentDelay === 3) {
       commentIndex++;
       thirdPageH2.textContent = comments[commentIndex];
+      commentDelay = 0;
     }
-  }, 200);
+  }, 2000);
 };
 
 userInput.addEventListener('keydown', (button) => {
   if (button.key == 'Enter') {
     summon(userInput.value);
 
-    if (commentIndex !== 13) {
+    if (commentIndex !== 12) {
       commentIndex++;
       thirdPageH2.textContent = comments[commentIndex];
     }
   }
+  stageTwoIncrement();
 });
 
 thirdPageBtn.addEventListener('click', () => {

@@ -48,3 +48,7 @@ body {
   border-right: 0;
   border-bottom: 2px solid white;
 }
+
+label {
+  color: white;
+}
