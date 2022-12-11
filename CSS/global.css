@@ -1,9 +1,18 @@
+:root {
+  --white: white;
+  --dark-bg: #130e14;
+}
+
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
+}
+
+p {
+  font-size: 2rem;
 }
 
 .user-interact-btn {
@@ -24,7 +33,7 @@ body {
   left: -10rem;
   width: 10rem;
   height: 1px;
-  background-color: white;
+  background-color: var(--white-bg);
   transition: 0.5s left ease;
 }
 
@@ -46,10 +55,10 @@ body {
   border-top: 0;
   border-left: 0;
   border-right: 0;
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid var(--white-bg);
   z-index: 5;
 }
 
 label {
-  color: white;
+  color: var(--white-bg);
 }

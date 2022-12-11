@@ -22,6 +22,20 @@ let boxIndex = 0;
 let summonLimit = 43;
 let currentSummonAmount = 0;
 
+const activateFourthPage = () => {
+  setTimeout(() => {
+    toggleFourthPage();
+    window.scrollBy({
+      top: 1000,
+      behavior: 'smooth',
+    });
+  }, 8000);
+
+  setTimeout(() => {
+    toggleThirdPage();
+  }, 9000);
+};
+
 const errorSection = () => {
   const summons = document.querySelectorAll('.summon');
 
@@ -30,18 +44,11 @@ const errorSection = () => {
   for (let i = 0; i <= amountOfSummonsRemaining; i++) {
     setTimeout(() => {
       summons[i].textContent = 'X';
-      summons[i].style.fontSize = '2rem';
+      summons[i].style.fontSize = '2.5rem';
     }, i * 150);
 
-    if (amountOfSummonsRemaining === 0) {
-      toggleFourthPage();
-      window.scrollBy({
-        top: 1000,
-        behavior: 'smooth',
-      });
-      setTimeout(() => {
-        toggleThirdPage();
-      }, 1000);
+    if (i === amountOfSummonsRemaining - 1) {
+      activateFourthPage();
     }
   }
 };
@@ -50,6 +57,8 @@ const stageTwoIncrement = () => {
   currentSummonAmount++;
   if (currentSummonAmount === summonLimit) {
     errorSection();
+    userInput.remove();
+    userInputText.remove();
   }
 };
 
@@ -96,7 +105,7 @@ userInput.addEventListener('keydown', (button) => {
   if (button.key == 'Enter') {
     summon(userInput.value);
 
-    if (commentIndex !== 13) {
+    if (commentIndex !== 12) {
       commentIndex++;
       thirdPageH2.textContent = comments[commentIndex];
     }
