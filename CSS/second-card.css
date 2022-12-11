@@ -13,6 +13,7 @@
 
 .second-page-active h2 {
   margin: 0;
+  font-size: 1rem;
 }
 
 .second-page-content {
@@ -21,4 +22,10 @@
   align-items: center;
   justify-content: space-around;
   height: 6rem;
+}
+
+@media screen and (min-width: 400px) {
+  .second-page-active h2 {
+    font-size: 1.5rem;
+  }
 }

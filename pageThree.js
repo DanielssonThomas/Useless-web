@@ -3,40 +3,53 @@ const comments = [
   "I couldn't have done it better my self!",
   'Okay thats enough, lets enjoy the view',
   'WOAH THERE, calm down! No need for more.',
-  'No- NO...Fine, you can have THREE no more',
+  'No- NO...Fine, you can have those no more',
   '...',
   'Oh no',
   'STOP',
   'STOOOP',
   'ITS ALL GOING DOWN',
-  'HALT, FREEZE, PAUSE, DISPLAY: NONE; COME ON',
+  'You must stop this at once',
   'Its over, its all over',
-  'What is this abomination...',
+  'Thats it...its gonna crash...',
 ];
 
 const emojis = ['👻', '🙌', '🖖', '😎', '🫠', '🐱'];
 
-const summonBoxOne = document.querySelector('.summon-container-one');
-const summonBoxTwo = document.querySelector('.summon-container-two');
-const summonBoxThree = document.querySelector('.summon-container-three');
-
-const userInput = document.querySelector('.user-interact-input');
-
-const thirdPageBtn = thirdPage.querySelector('.user-interact-btn');
-
 let commentIndex = 0;
 let commentDelay = 0;
 let boxIndex = 0;
-let summonLimit = 15;
+let summonLimit = 43;
 let currentSummonAmount = 0;
 
-const stageTwo = () => {
-  clearInterval();
+const errorSection = () => {
+  const summons = document.querySelectorAll('.summon');
+
+  let amountOfSummonsRemaining = summons.length;
+  const delay = 500;
+  for (let i = 0; i <= amountOfSummonsRemaining; i++) {
+    setTimeout(() => {
+      summons[i].textContent = 'X';
+      summons[i].style.fontSize = '2rem';
+    }, i * 150);
+
+    if (amountOfSummonsRemaining === 0) {
+      toggleFourthPage();
+      window.scrollBy({
+        top: 1000,
+        behavior: 'smooth',
+      });
+      setTimeout(() => {
+        toggleThirdPage();
+      }, 1000);
+    }
+  }
 };
 
 const stageTwoIncrement = () => {
   currentSummonAmount++;
   if (currentSummonAmount === summonLimit) {
+    errorSection();
   }
 };
 
@@ -65,23 +78,25 @@ const summon = (value) => {
 };
 
 const continueAutoSummon = () => {
-  setInterval(() => {
-    const emoji = emojis[Math.floor(Math.random() * emojis.length)];
-    summon(emoji);
-    commentDelay++;
-    if (commentIndex !== 12 && commentDelay === 3) {
-      commentIndex++;
-      thirdPageH2.textContent = comments[commentIndex];
-      commentDelay = 0;
+  let summonInterval = setInterval(() => {
+    if (currentSummonAmount !== summonLimit) {
+      const emoji = emojis[Math.floor(Math.random() * emojis.length)];
+      summon(emoji);
+      commentDelay++;
+      if (commentIndex !== 12 && commentDelay === 3) {
+        commentIndex++;
+        thirdPageH2.textContent = comments[commentIndex];
+        commentDelay = 0;
+      }
     }
-  }, 2000);
+  }, 1000);
 };
 
 userInput.addEventListener('keydown', (button) => {
   if (button.key == 'Enter') {
     summon(userInput.value);
 
-    if (commentIndex !== 12) {
+    if (commentIndex !== 13) {
       commentIndex++;
       thirdPageH2.textContent = comments[commentIndex];
     }
@@ -92,4 +107,6 @@ userInput.addEventListener('keydown', (button) => {
 thirdPageBtn.addEventListener('click', () => {
   continueAutoSummon();
   thirdPageBtn.remove();
+  userInput.remove();
+  userInputText.remove();
 });

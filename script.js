@@ -9,6 +9,17 @@ const thirdPage = document.querySelector('.third-page-disabled');
 const thirdPageH2 = thirdPage.querySelector('h2');
 const thirdPageInput = thirdPage.querySelector('.user-interact-input');
 
+const summonBoxOne = document.querySelector('.summon-container-one');
+const summonBoxTwo = document.querySelector('.summon-container-two');
+const summonBoxThree = document.querySelector('.summon-container-three');
+
+const userInput = document.querySelector('.user-interact-input');
+const userInputText = document.querySelector('label');
+
+const thirdPageBtn = thirdPage.querySelector('.user-interact-btn');
+
+const fourthPage = document.querySelector('.fourth-page-disabled');
+
 const toggleSecondPage = () => {
   secondPage.classList.toggle('second-page-active');
   secondPage.classList.toggle('second-page-disabled');
@@ -17,6 +28,11 @@ const toggleSecondPage = () => {
 const toggleThirdPage = () => {
   thirdPage.classList.toggle('third-page-active');
   thirdPage.classList.toggle('third-page-disabled');
+};
+
+const toggleFourthPage = () => {
+  fourthPage.classList.toggle('fourth-page-active');
+  fourthPage.classList.toggle('fourth-page-disabled');
 };
 
 const secondPageEvents = () => {

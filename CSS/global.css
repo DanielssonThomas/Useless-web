@@ -47,6 +47,7 @@ body {
   border-left: 0;
   border-right: 0;
   border-bottom: 2px solid white;
+  z-index: 5;
 }
 
 label {
