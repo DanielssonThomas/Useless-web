@@ -82,7 +82,11 @@
     </section>
 
     <section class="fourth-page-disabled">
-      <img src="images/error.gif" alt="" />
+      <picture>
+        <source srcset="images/error-large.gif" media="(min-width:1000px)" />
+        <source srcset="images/error-medium.gif" media="(min-width: 700px)" />
+        <img src="images/error-small.gif" alt="error text" />
+      </picture>
     </section>
     <script src="script.js"></script>
     <script src="pageThree.js"></script>

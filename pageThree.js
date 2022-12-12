@@ -1,3 +1,4 @@
+//Array of all comments, changing when more items spawn.
 const comments = [
   "Great! doesn't it look funny?",
   "I couldn't have done it better my self!",
@@ -13,37 +14,46 @@ const comments = [
   'Its over, its all over',
   'Thats it...its gonna crash...',
 ];
-
-const emojis = ['👻', '🙌', '🖖', '😎', '🫠', '🐱'];
-
+//CommentIndex is the index of the comments array and the comment that is displayed at that time.
 let commentIndex = 0;
+
+//CommentDelay makes sure the comment doesnt change for every time an item is added.
 let commentDelay = 0;
+
+//Array of all emojis which gets added if the user presses the "cause chaos".
+const emojis = ['👻', '🙌', '🖖', '😎', '🫠', '🐱', '🍔'];
+
+//BoxIndex is the index for the footers inside the footer wrapper.
 let boxIndex = 0;
+
+//Summon information
 let summonLimit = 43;
 let currentSummonAmount = 0;
 
+//This waits 8 seconds before adding and scrolling down the fourth card, the timeout after that triggers 1 second later which removes the third page.
 const activateFourthPage = () => {
   setTimeout(() => {
     toggleFourthPage();
     window.scrollBy({
       top: 1000,
-      behavior: 'smooth',
     });
   }, 8000);
 
   setTimeout(() => {
+    const summonWrapper = document.querySelector('.footer-wrapper');
+    summonWrapper.remove();
     toggleThirdPage();
   }, 9000);
 };
 
+//Finds and changes every summon item with a delay, once all are changed the activateFourthPage() is activated.
 const errorSection = () => {
   const summons = document.querySelectorAll('.summon');
 
   let amountOfSummonsRemaining = summons.length;
-  const delay = 500;
-  for (let i = 0; i <= amountOfSummonsRemaining; i++) {
+  for (let i = 0; i < amountOfSummonsRemaining; i++) {
     setTimeout(() => {
-      summons[i].textContent = 'X';
+      summons[i].innerHTML = 'X';
       summons[i].style.fontSize = '2.5rem';
     }, i * 150);
 
@@ -53,6 +63,7 @@ const errorSection = () => {
   }
 };
 
+//Updates the current item amount by incrementing by one. Once the limit has been reached error section activates.
 const stageTwoIncrement = () => {
   currentSummonAmount++;
   if (currentSummonAmount === summonLimit) {
@@ -62,6 +73,7 @@ const stageTwoIncrement = () => {
   }
 };
 
+//Summons an item within footer-wrapper by value inserted.
 const summon = (value) => {
   const p = document.createElement('p');
   p.classList.add('summon');
@@ -86,8 +98,9 @@ const summon = (value) => {
   stageTwoIncrement();
 };
 
+//AutoSummon creates an random emoji in flex-wrapper every second until the limit is reached.
 const continueAutoSummon = () => {
-  let summonInterval = setInterval(() => {
+  setInterval(() => {
     if (currentSummonAmount !== summonLimit) {
       const emoji = emojis[Math.floor(Math.random() * emojis.length)];
       summon(emoji);
@@ -101,18 +114,21 @@ const continueAutoSummon = () => {
   }, 1000);
 };
 
+//Uses summon to add the value within the input section.
 userInput.addEventListener('keydown', (button) => {
   if (button.key == 'Enter') {
     summon(userInput.value);
 
-    if (commentIndex !== 12) {
+    commentDelay++;
+    if (commentIndex !== 12 && commentDelay === 3) {
       commentIndex++;
       thirdPageH2.textContent = comments[commentIndex];
+      commentDelay = 0;
     }
   }
-  stageTwoIncrement();
 });
 
+//Removes the option to use input and begins summoning emojis until it hits its limit!
 thirdPageBtn.addEventListener('click', () => {
   continueAutoSummon();
   thirdPageBtn.remove();

@@ -20,5 +20,5 @@ Add the installation instructions.
 
 Tested by the following people:
 
-1. Jane Doe
+1. Douglas Lindahl
 2. John Doe
