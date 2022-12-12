@@ -1,12 +1,12 @@
-INSERT MANDATORY GIF
+![This is an image](https://media.tenor.com/EgkVXwM-f9IAAAAd/useless-box-box.gif)
 
-# Project Title
+# Useless view
 
-Text about the project. This would also be a great place to link the game on Netlify.
+A nice view runied by random text or emojis. Netlify: https://useless-webb.netlify.app/
 
 # Installation
 
-Add the installation instructions.
+Clone repository and run index.html
 
 # Code Review
 
@@ -21,4 +21,3 @@ Add the installation instructions.
 Tested by the following people:
 
 1. Douglas Lindahl
-2. John Doe
