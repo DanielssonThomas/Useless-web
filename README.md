@@ -21,3 +21,4 @@ Clone repository and run index.html
 Tested by the following people:
 
 1. Douglas Lindahl
+2. Lucas Källberg
