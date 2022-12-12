@@ -2,7 +2,7 @@
 
 # Useless view
 
-A nice view runied by random text or emojis. Netlify: https://useless-webb.netlify.app/
+A nice view runied by random text or emojis. Netlify: https://useless-webb-nice-view.netlify.app/
 
 # Installation
 
